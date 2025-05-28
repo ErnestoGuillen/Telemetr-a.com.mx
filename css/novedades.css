@@ -1,15 +1,15 @@
-/* Toda la pantalla sin scroll */
+/* === ESTILOS GLOBALES === */
 html, body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  overflow: hidden;
+  overflow: hidden; /* Evita scroll vertical si no es necesario */
   font-family: 'Segoe UI', sans-serif;
-  background-color: #e3f2fd;
+  background-color: #e3f2fd; /* Azul claro de fondo */
   color: #333;
 }
 
-/* Contenedor con fondo completo */
+/* === CONTENEDOR PRINCIPAL CON FONDO FIJO === */
 .contenedor {
   background-image: url('/imagenes/tubos_fondo.png');
   background-size: cover;
@@ -26,29 +26,29 @@ html, body {
   overflow-y: auto;
 }
 
-/* Encabezado */
+/* === ENCABEZADO === */
 .encabezado {
   background-color: white;
   width: 100%;
   text-align: center;
   padding: 2rem 1rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra inferior */
 }
 
 .encabezado h1 {
-  color: #005288;
+  color: #005288; /* Azul institucional */
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
 }
 
 .encabezado p {
-  color: #ffb300;
+  color: #ffb300; /* Amarillo */
   font-weight: bold;
   font-size: 1.2rem;
   margin: 0;
 }
 
-/* Contenedor de tarjetas */
+/* === CONTENEDOR DE TARJETAS PRINCIPALES === */
 .tarjetas-novedades {
   display: flex;
   flex-direction: column;
@@ -59,7 +59,7 @@ html, body {
   max-width: 1200px;
 }
 
-/* Tarjeta general */
+/* === TARJETAS PRINCIPALES === */
 .tarjeta {
   background-color: white;
   border-radius: 12px;
@@ -83,7 +83,6 @@ html, body {
   font-size: 1.3em;
 }
 
-/* Imagen dentro de la tarjeta */
 .tarjeta img {
   width: 80%;
   max-height: 300px;
@@ -94,25 +93,22 @@ html, body {
   object-fit: cover;
 }
 
-/* Párrafos */
 .tarjeta p {
   padding: 1.2vh 1.5vw;
   font-size: 1em;
   color: #333;
 }
 
-/* Alinear tarjeta a la derecha */
 .tarjeta.derecha {
   margin-left: auto;
   margin-right: 2vw;
 }
 
-/* Centrar tarjeta */
 .tarjeta.centrada {
   margin: 0 auto;
 }
 
-/* Carrusel automático de izquierda a derecha */
+/* === CARRUSEL DE IMÁGENES EN TARJETAS === */
 .carrusel {
   width: 80%;
   overflow: hidden;
@@ -122,7 +118,7 @@ html, body {
 
 .carrusel-slides {
   display: flex;
-  width: 500%; /* 5 imágenes (100% x 5) */
+  width: 500%;
   animation: slideIzqADer 20s infinite ease-in-out;
 }
 
@@ -132,21 +128,16 @@ html, body {
   border-radius: 10px;
 }
 
-/* Animación del carrusel */
+/* === ANIMACIÓN DE CARRUSEL === */
 @keyframes slideIzqADer {
-  0% { transform: translateX(0%); }
-  20% { transform: translateX(0%); }
-  25% { transform: translateX(-20%); }
-  40% { transform: translateX(-20%); }
-  45% { transform: translateX(-40%); }
-  60% { transform: translateX(-40%); }
-  65% { transform: translateX(-60%); }
-  80% { transform: translateX(-60%); }
-  85% { transform: translateX(-80%); }
-  100% { transform: translateX(0%); }
+  0%, 20% { transform: translateX(0%); }
+  25%, 40% { transform: translateX(-20%); }
+  45%, 60% { transform: translateX(-40%); }
+  65%, 80% { transform: translateX(-60%); }
+  85%, 100% { transform: translateX(-80%); }
 }
 
-/* Imagen doble lado a lado */
+/* === IMÁGENES DOBLES EN TARJETA === */
 .imagenes-dobles {
   display: flex;
   justify-content: center;
@@ -161,7 +152,7 @@ html, body {
   border-radius: 10px;
 }
 
-/* NUEVAS SECCIONES TIPO ECN */
+/* === SECCIONES INFERIORES TIPO ECN === */
 .seccion-inferior {
   background-color: #f9f9f9;
   padding: 50px 20px;
@@ -206,36 +197,9 @@ html, body {
   font-size: 1em;
   color: #444;
 }
+
+/* === RESPONSIVE PARA TABLETS Y CELULARES === */
 @media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 1rem 0;
-  }
-
-  header img {
-    height: 60px;
-    margin: 0.5rem 0;
-  }
-
-  header h1 {
-    font-size: 1.8rem;
-  }
-
-  nav {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem 0;
-    text-align: center;
-  }
-
-  nav a {
-    font-size: 1.2rem;
-    display: block;
-  }
-
   .contenedor {
     padding-top: 1rem;
     height: auto;
@@ -265,90 +229,21 @@ html, body {
     grid-template-columns: 1fr;
   }
 
-  .accordion-title {
-    font-size: 1.2rem;
-  }
-
-  .accordion-content {
-    font-size: 1rem;
-    padding-left: 1.5rem;
-  }
-
-  .novedades h2 {
-    font-size: 1.4rem;
-    text-align: center;
-  }
-}
-@media (max-width: 768px) {
-  body, html {
-    overflow-x: hidden;
-  }
-
-  header {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 1rem 0;
-  }
-
-  header img {
-    height: 60px;
-    margin: 0.5rem 0;
-  }
-
-  header h1 {
+  .encabezado h1 {
     font-size: 1.8rem;
   }
 
-  nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.7rem;
-    padding: 1rem 0;
-    width: 100%;
-  }
-
-  nav a {
-    background-color: #005288;
-    color: white;
-    padding: 0.8rem 1.2rem;
-    border-radius: 8px;
-    width: 90%;
-    text-align: center;
-    font-size: 1.1rem;
-    text-decoration: none;
-  }
-
-  .container {
-    padding: 0 1rem;
-  }
-
-  .novedades h2 {
-    font-size: 1.3rem;
-    text-align: center;
-  }
-
-  .contenido {
-    padding: 0 1rem;
-  }
-
-  .slide img {
-    width: 100% !important;
-    height: auto;
-  }
-
-  .locations h2 {
-    font-size: 1.3rem;
-    text-align: center;
-    margin-top: 2rem;
-  }
-
-  .accordion-title {
-    font-size: 1.1rem;
-  }
-
-  .accordion-content li {
+  .encabezado p {
     font-size: 1rem;
   }
+}
+
+/* === TARJETA OCUPANDO TODA LA ALTURA DE LA VENTANA === */
+.tarjeta-centrada {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.85);
 }
