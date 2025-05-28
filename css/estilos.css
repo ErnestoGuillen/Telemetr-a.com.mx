@@ -1,3 +1,4 @@
+/* === ESTILOS GLOBALES === */
 body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #e3f2fd;
@@ -6,7 +7,7 @@ body {
   color: #333;
 }
 
-/* Encabezado */
+/* === ENCABEZADO === */
 header {
   display: flex;
   justify-content: space-between;
@@ -31,7 +32,7 @@ header h1 {
   margin: 0;
 }
 
-/* Navegación */
+/* === NAVEGACIÓN PRINCIPAL === */
 nav {
   display: flex;
   justify-content: center;
@@ -67,7 +68,7 @@ nav a:focus .icon {
   transform: scale(1.3);
 }
 
-/* Novedades */
+/* === SECCIÓN NOVEDADES === */
 .novedades {
   text-align: center;
   padding: 4vh 2vw 0;
@@ -91,12 +92,11 @@ nav a:focus .icon {
   cursor: pointer;
 }
 
-/* Carrusel */
+/* === CARRUSEL === */
 .carousel {
   width: 90vw;
   max-width: 500px;
   aspect-ratio: 16 / 9;
-  min-height: 200px;
   overflow: hidden;
   border-radius: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -121,34 +121,16 @@ nav a:focus .icon {
   border-radius: 20px;
 }
 
+/* Animación del carrusel */
 @keyframes slideAnimation {
-
-  0%,
-  20% {
-    transform: translateX(0);
-  }
-
-  25%,
-  45% {
-    transform: translateX(-25%);
-  }
-
-  50%,
-  70% {
-    transform: translateX(-50%);
-  }
-
-  75%,
-  95% {
-    transform: translateX(-75%);
-  }
-
-  100% {
-    transform: translateX(0);
-  }
+  0%, 20% { transform: translateX(0); }
+  25%, 45% { transform: translateX(-25%); }
+  50%, 70% { transform: translateX(-50%); }
+  75%, 95% { transform: translateX(-75%); }
+  100% { transform: translateX(0); }
 }
 
-/* Contenedor general */
+/* === CONTENEDOR Y SECCIÓN DE CONTENIDO === */
 .container {
   padding-bottom: 5vh;
 }
@@ -162,7 +144,7 @@ nav a:focus .icon {
   margin: 4vh auto 0;
 }
 
-/* Acordeón de ubicaciones */
+/* === ACORDEÓN UBICACIONES === */
 .locations {
   max-width: 40vw;
 }
@@ -186,6 +168,7 @@ nav a:focus .icon {
   font-size: 1.2vw;
 }
 
+/* Control del acordeón */
 input[type="checkbox"] {
   display: none;
 }
@@ -197,10 +180,11 @@ input[type="checkbox"] {
   padding-left: 1vw;
 }
 
-input[type="checkbox"]:checked+label+.accordion-content {
+input[type="checkbox"]:checked + label + .accordion-content {
   max-height: 50vh;
 }
 
+/* Elementos de la lista */
 .accordion-content li {
   display: flex;
   align-items: center;
@@ -211,15 +195,22 @@ input[type="checkbox"]:checked+label+.accordion-content {
   border-left: 6px solid #3498db;
   border-radius: 6px;
   font-size: 1vw;
+  transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
-.accordion-content li img {
-  width: 1.2vw;
-  height: auto;
-  min-width: 18px;
+.accordion-content li:hover {
+  transform: scale(1.03);
+  background-color: #bcdfff;
+  box-shadow: 0 4px 12px rgba(0, 82, 136, 0.2);
 }
 
-/* Responsive */
+.accordion-content li:active {
+  transform: scale(0.98);
+  background-color: #a3d0f5;
+}
+
+/* === RESPONSIVE PARA CELULARES Y TABLETS === */
 @media (max-width: 768px) {
   header h1 {
     font-size: 6vw;
@@ -250,20 +241,4 @@ input[type="checkbox"]:checked+label+.accordion-content {
   .accordion-content li {
     font-size: 3vw;
   }
-}
-/* Animación al pasar el mouse */
-.accordion-content li {
-  transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-.accordion-content li:hover {
-  transform: scale(1.03);
-  background-color: #bcdfff;
-  box-shadow: 0 4px 12px rgba(0, 82, 136, 0.2);
-}
-
-.accordion-content li:active {
-  transform: scale(0.98);
-  background-color: #a3d0f5;
 }
